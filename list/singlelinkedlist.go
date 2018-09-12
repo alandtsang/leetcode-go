@@ -18,3 +18,20 @@ func (l *ListNode) Print() []int {
 	//fmt.Println(nums)
 	return nums
 }
+
+func (l *ListNode) Reverse() *ListNode {
+	if l == nil {
+		return l
+	}
+
+	var tail, p, next *ListNode
+	p, next = l, l
+	for p != nil && next != nil {
+		next = p.Next
+		p.Next = tail
+		tail = p
+		p = next
+	}
+	p = tail // tail 指向 l 最后一个元素
+	return p
+}
