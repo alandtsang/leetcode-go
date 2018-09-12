@@ -1,23 +1,8 @@
 package mergetwolists
 
-/**
- * Definition for singly-linked list.
- */
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/alandtsang/leetcode-go/list"
 
-func (l *ListNode) Print() []int {
-	var nums []int
-
-	for l != nil {
-		nums = append(nums, l.Val)
-		l = l.Next
-	}
-	//fmt.Println(nums)
-	return nums
-}
+type ListNode = list.ListNode
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	var result ListNode
