@@ -1,4 +1,4 @@
-package maxprofit
+package maxprofit2
 
 import "testing"
 

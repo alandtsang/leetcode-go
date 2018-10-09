@@ -3,7 +3,7 @@
 // 2. 递增序列，第一天买入，最后一天卖出，利润为 prices[n-1] - prices[0]
 // 3. 有增有降，如果当前值比之前值小，min = 当前值，计算 totalSum
 // 当前值比之前值大，则需要判断 curSum 和 (当前值 - min) 的大小
-package maxprofit
+package maxprofit2
 
 func maxProfit(prices []int) int {
 	if len(prices) == 0 {
