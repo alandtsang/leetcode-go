@@ -42,6 +42,5 @@ func TestAddTwoNumbers(t *testing.T) {
 		if result = l.Print(); reflect.DeepEqual(result, v.expect) != true {
 			t.Errorf("l1=%v, l2=%v, get %v, expect %v", v.l1.Print(), v.l2.Print(), result, v.expect)
 		}
-
 	}
 }
