@@ -1,5 +1,7 @@
-// 取 s 第 1 个字符，使用双指针向后取字符，直到字符重复。
-// 继续 s 的下个字符，重复上一动作。
+// 用 map 存储字符串中<字符, 位置>
+// 用两个指针表示最大子串长度的首尾
+// 移动右指针，并更新 map 中字符位置
+// 比较移动指针后的子串长度是否大于已保存的长度
 package lengthoflongestsubstring
 
 func lengthOfLongestSubstring(s string) int {
@@ -7,22 +9,22 @@ func lengthOfLongestSubstring(s string) int {
 		return 0
 	}
 
-	var length = 1
-	for i := 0; i < len(s); i++ {
-		sMap := make(map[byte]bool)
-		sMap[s[i]] = true
-		var tempLen = 1
-		for j := i + 1; j < len(s); j++ {
-			if _, ok := sMap[s[j]]; ok {
-				break
-			} else {
-				sMap[s[j]] = true
-				tempLen++
-			}
+	var maxLen int
+	sMap := make(map[byte]int)
+	for i, j := 0, -1; i < len(s); i++ {
+		if _, ok := sMap[s[i]]; ok {
+			j = max(j, sMap[s[i]])
 		}
-		if tempLen > length {
-			length = tempLen
-		}
+		sMap[s[i]] = i
+		//fmt.Println(i, j, "key=", s[i], "value=", sMap[s[i]])
+		maxLen = max(maxLen, i-j)
 	}
-	return length
+	return maxLen
+}
+
+func max(m, n int) int {
+	if m > n {
+		return m
+	}
+	return n
 }
