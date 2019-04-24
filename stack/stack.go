@@ -38,7 +38,7 @@ func (s *Stack) Peek() interface{} {
 
 func (s *Stack) Travel() {
 	for e := s.list.Front(); e != nil; e = e.Next() {
-		fmt.Printf("%c", e.Value)
+		fmt.Printf("%v ", e.Value)
 	}
 	fmt.Println()
 }
